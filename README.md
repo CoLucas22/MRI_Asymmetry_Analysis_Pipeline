@@ -31,6 +31,17 @@ Project for **Magnetic Resonance Imaging (MRI)** analysis focusing on asymmetry 
 Create a Python environment (recommended: `conda` or `venv`) and install dependencies:
 
 ```bash
+# 1. Create environment
+python -m venv venv_mri
+
+# 2. Activate it
+source venv_mri/bin/activate
+
+
+# 3. Upgrae pip
+pip install --upgrade pip
+
+# 4. Install dependencies
 pip install -r requirements.txt
 ```
 
