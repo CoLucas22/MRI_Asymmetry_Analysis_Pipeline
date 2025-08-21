@@ -49,19 +49,9 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-### 1. Preprocess MRI data
+### 3. Generate Rsults Visualization
 ```bash
-python scripts/preprocess.py --input data_example/MRIs/Patient_1/MRI_1/ --output results/
-```
-
-### 2. Extract features
-```bash
-python scripts/extract_features.py --input results/ --output results/features.csv
-```
-
-### 3. Generate visualizations
-```bash
-python scripts/visualize.py --input results/features.csv --output results/figures/
+python scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/export_00062.DCM
 ```
 
 ---

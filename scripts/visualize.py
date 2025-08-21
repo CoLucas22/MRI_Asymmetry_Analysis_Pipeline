@@ -1,3 +1,4 @@
+import argparse
 from utils import divide_image,open_dcm
 from extract_features import calculate_difference_old, find_best_window, summarise_rows, find_best_2_rows, smoothing_scores
 import matplotlib.pyplot as plt
@@ -110,10 +111,40 @@ def display_slice_and_scores_profile(image_path, scores_df_path = "data_example/
     plt.show()
 
 
-
 if __name__ == "__main__":
-    image_path = "data_example/MRIs/Patient_1/MRI_1/export_00062.DCM"
-    image = open_dcm(image_path)
-    #display_halves_and_scores(image)
+    parser = argparse.ArgumentParser(description="Visualize MRI slices and asymmetry scores.")
     
-    display_slice_and_scores_profile(image_path, scores_df_path="data_example/data_aggregated.csv")
+    # Argument obligatoire : chemin vers le fichier DCM
+    parser.add_argument(
+        "image_path",
+        type=str,
+        help="Path to the DICOM (.DCM) file to visualize"
+    )
+    
+    # Argument optionnel : chemin vers le CSV des scores
+    parser.add_argument(
+        "--scores_df",
+        type=str,
+        default="data_example/data_aggregated.csv",
+        help="Path to CSV file with scores (default: data_example/data_aggregated.csv)"
+    )
+    
+    # Argument optionnel : choisir la fonction de visualisation
+    parser.add_argument(
+        "--mode",
+        type=str,
+        choices=["slice", "halves"],
+        default="slice",
+        help="Visualization mode: 'slice' for display_slice_and_scores_profile, 'halves' for display_halves_and_scores"
+    )
+    
+    args = parser.parse_args()
+    
+    # Ouvrir l'image
+    image = open_dcm(args.image_path)
+    
+    # Appel de la fonction choisie
+    if args.mode == "slice":
+        display_slice_and_scores_profile(args.image_path, scores_df_path=args.scores_df)
+    elif args.mode == "halves":
+        display_halves_and_scores(image)

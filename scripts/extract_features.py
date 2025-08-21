@@ -226,7 +226,6 @@ def vertical_weighting(MAE, DSSIM, JSD, image_path):
     y_spacing = spacing[1] if len(spacing) > 2 else spacing[0]  # en mm
     # Conversion de 1 cm en nombre de tranches
     tranches_par_cm = int(10 // y_spacing)  # 10mm = 1cm
-    print(f"Espacement en y: {y_spacing} mm, Tranches par cm: {tranches_par_cm}")
     longueur_liste = len(MAE)
     scores = [0] * longueur_liste
     # Fonction pour vérifier si les 3 scores sont > 0 sur 3 lignes consécutives
@@ -245,7 +244,6 @@ def vertical_weighting(MAE, DSSIM, JSD, image_path):
         (i for i in range(longueur_liste - 3, -1, -1) if triple_positive(i)),
         None
     )
-    print(f"Index début ascension: {index_debut_ascension}, Index fin descente: {index_fin_descente}")
     # Gestion des cas limites
     if index_debut_ascension is None or index_fin_descente is None or index_debut_ascension >= index_fin_descente:
         return scores
