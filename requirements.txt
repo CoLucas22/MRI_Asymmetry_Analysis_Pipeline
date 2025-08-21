@@ -1,7 +1,7 @@
-numpy
-scipy
-pandas
-matplotlib
-seaborn
-SimpleITK
-opencv-python
+numpy==2.2.6
+scipy==1.16.1
+pandas==2.3.2
+matplotlib==3.10.5
+seaborn==0.13.2
+SimpleITK==2.5.2
+opencv-python==4.12.0.88
