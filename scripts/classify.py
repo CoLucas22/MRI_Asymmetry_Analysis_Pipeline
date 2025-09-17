@@ -1,5 +1,6 @@
 #import an existing logistic regression model 
 import joblib
+from sklearn.linear_model import LogisticRegression
 import preprocess
 from utils import open_dcm, divide_image
 from extract_features import calculate_difference_old
@@ -9,17 +10,19 @@ import pandas as pd
 
 
 
-def logistic_construction(X):
+def logistic_construction():
     coefs = dict()
     coefs_csv = pd.read_csv("./model/model_coefs.csv")
     for index, row in coefs_csv.iterrows():
         coefs[row['Unnamed: 0']] = row['x']
+    features = ['cH_DSSIM', 'cH_JSD', 'cV_DSSIM', 'cV_JSD', 'JSD', 'DSSIM', 'MAE']
+    weights = [coefs[feature] for feature in features]
     intercept = coefs['(Intercept)']
-    features = [k for k in coefs.keys() if k != '(Intercept)']
-    weights = np.array([coefs[f] for f in features])
-
-    z = intercept + np.dot(X, weights)
-    return 1 / (1 + np.exp(-z))
+    model = LogisticRegression()
+    model.classes_ = np.array([0, 1])  # classes attendues par sklearn
+    model.coef_ = np.array([weights])  # shape (1, n_features)
+    model.intercept_ = np.array([intercept])
+    return model
 
 
 def preprocess_data(data = None, data_path = None, extract_window = False):
@@ -47,7 +50,6 @@ def extract_features_from_data(data, data_path):
             right_CV, left_CV = divide_image(image=image[2])
             cV_JSD, _, cV_DSSIM = calculate_difference_old(left_half=left_CV, right_half=right_CV)
             features_list.append([cH_DSSIM, cH_JSD, cV_DSSIM, cV_JSD, JSD, DSSIM, MAE])
-        print(features_list)
         return features_list
 
 
@@ -59,7 +61,8 @@ def classify_data(data_path):
         raise ValueError("data_path should be a list of file paths.")
 
     features = extract_features_from_data(data = data, data_path = data_path)
-    prediction = logistic_construction(features)
+    model = logistic_construction()
+    prediction = model.predict(features)
     return prediction
 
 
