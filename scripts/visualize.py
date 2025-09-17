@@ -116,7 +116,7 @@ if __name__ == "__main__":
     
     # Argument obligatoire : chemin vers le fichier DCM
     parser.add_argument(
-        "image_path",
+        "--input",
         type=str,
         help="Path to the DICOM (.DCM) file to visualize"
     )
@@ -141,10 +141,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
     
     # Ouvrir l'image
-    image = open_dcm(args.image_path)
     
     # Appel de la fonction choisie
     if args.mode == "slice":
-        display_slice_and_scores_profile(args.image_path, scores_df_path=args.scores_df)
+        display_slice_and_scores_profile(args.input, scores_df_path=args.scores_df)
     elif args.mode == "halves":
+        image = open_dcm(args.input)
         display_halves_and_scores(image)

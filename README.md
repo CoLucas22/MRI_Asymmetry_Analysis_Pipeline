@@ -11,7 +11,7 @@ Project for **Magnetic Resonance Imaging (MRI)** analysis focusing on asymmetry 
 ├── README.md               # This file
 ├── requirements.txt        # Python dependencies
 ├── data_example/           # Example dataset (MRI + CSV)
-│   ├── MRIs/               # Raw MRI images (e.g., DICOM)
+│   ├── MRIs/               # Raw MRI images (DICOM)
 │   ├── CSV_files/          # Intermediate CSV files
 │   ├── data_aggregated.csv # Aggregated example data
 │   └── Runs_dataset.csv    # Dataset metadata
