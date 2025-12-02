@@ -74,4 +74,4 @@ python scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/export_000
 ---
 
 ## 👤 Author
-Developed by **Corentin Lucas**, PhD in INRIA Rennes, Dyliss Team, for medical imaging analysis.
+Developed by **Corentin Lucas**, PhD Student in INRIA Rennes, Dyliss Team, for medical imaging analysis and research of microbiome biomarkers related to Crohn's disease.
