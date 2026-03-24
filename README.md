@@ -55,7 +55,7 @@ python python_scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/exp
 ```
 
 ### 2. Train logistic regression and predict
-```r
+```bash
 Rscript R_scripts/classification_task.R data_example/train_dataset.csv data_example_validation.csv
 ```
 
