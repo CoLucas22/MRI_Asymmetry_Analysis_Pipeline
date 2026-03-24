@@ -13,11 +13,14 @@ Project for **Magnetic Resonance Imaging (MRI)** analysis focusing on asymmetry 
 ├── data_example/           # Example dataset (MRI + CSV)
 │   ├── MRIs/               # Raw MRI images (DICOM)
 │   ├── CSV_files/          # Intermediate CSV files
-│   ├── data_aggregated.csv # Aggregated example data
+│   ├── train_dataset.csv   # dataset to train logistic regression
+│   ├── validation_dataset.csv   # dataset to make predictions with logistic regression
 │   └── Runs_dataset.csv    # Dataset metadata
 ├── results/                # Generated outputs
 │   └── figures/            # Exported figures
-└── scripts/                # Analysis scripts
+├── R_scripts/                
+│   └── classification_task.R/   logistic regression        
+└── python_scripts/                
     ├── preprocess.py       # MRI preprocessing
     ├── extract_features.py # Feature extraction
     ├── visualize.py        # Visualization 
