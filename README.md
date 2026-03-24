@@ -49,9 +49,14 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-### 3. Generate Results Visualization
+### 1. Generate Results Visualization
 ```bash
-python scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/export_00062.DCM
+python python_scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/export_00062.DCM
+```
+
+### 2. Train logistic regression and predict
+```r
+Rscript R_scripts/classification_task.R data_example/train_dataset.csv data_example_validation.csv
 ```
 
 ---

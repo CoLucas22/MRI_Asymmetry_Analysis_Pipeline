@@ -3,6 +3,12 @@ library(pROC)
 library(ggplot2)
 library(tidyr)
 
+args <- commandArgs(trailingOnly = TRUE)
+train_data_path <- args[1]
+validation_data_path <- args[2]
+
+train_dataset <- read.csv(train_data_path)
+validation_dataset <- read.csv(validation_data_path)
 
 train_prediction <- function(train_dataset, validation_dataset, verbose=FALSE){
     #train logistic regression model
