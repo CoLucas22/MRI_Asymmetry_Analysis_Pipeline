@@ -49,7 +49,7 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-### 3. Generate Rsults Visualization
+### 3. Generate Results Visualization
 ```bash
 python scripts/visualize.py --input data_example/MRIs/Patient_1/MRI_1/export_00062.DCM
 ```
