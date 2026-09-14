@@ -1,10 +1,10 @@
-# 🧠 MRI Asymmetry Analysis
+# MRI Asymmetry Analysis
 
 Project for **Magnetic Resonance Imaging (MRI)** analysis focusing on asymmetry measures from medical images.
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -29,7 +29,7 @@ Project for **Magnetic Resonance Imaging (MRI)** analysis focusing on asymmetry 
 
 ---
 
-## ⚙️ Installation
+## Installation
 
 Create a Python environment (recommended: `conda` or `venv`) and install dependencies:
 
@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Usage
+## Usage
 
 ### 1. Generate Results Visualization
 ```bash
@@ -64,7 +64,7 @@ Rscript R_scripts/classification_task.R data_example/train_dataset.csv data_exam
 
 ---
 
-## 📦 Main Dependencies
+## Main Dependencies
 - `numpy`, `scipy`, `pandas`
 - `matplotlib`, `seaborn`
 - `opencv-python`

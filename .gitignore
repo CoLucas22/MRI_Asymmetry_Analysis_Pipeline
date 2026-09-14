@@ -58,3 +58,4 @@ Thumbs.db
 *.env
 *.ini
 ./data_example/MRIs/Patient_1/MRI_1/anonymize.py
+./data_example/MRIs/Patient_1/MRI_1/modify.py
